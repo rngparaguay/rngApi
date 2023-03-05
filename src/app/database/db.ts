@@ -7,16 +7,17 @@ import { Games } from "../entities/Games";
 import { City } from "../entities/City";
 import { Profile } from "../entities/Profile";
 import { User } from "../entities/User";
-import 'dotenv/config';
+import * as dotenv from "dotenv";
 
+dotenv.config({ path: process.cwd() + '/src/.env'})
 
 export const AppDataSource = new DataSource({
     type: "postgres",
-    host: process.env.HOST || "localhost",
-    port: Number(String(process.env.PORT)),
-    username: process.env.USER || "postgres",
-    password: process.env.PASSWORD || "root",
-    database: process.env.DATABASE || "rng",
+    host: process.env.HOSTDB,
+    port: Number(process.env.PORTDB),
+    username: process.env.USERNAMEDB,
+    password: process.env.PASSWORDDB,
+    database: process.env.DATABASE,
     synchronize: true,
     logging: true,
     entities: [Platform, GameGenre, TypeUser, State, Games, City, Profile, User],
