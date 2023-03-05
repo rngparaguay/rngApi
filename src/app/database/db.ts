@@ -12,11 +12,11 @@ import 'dotenv/config';
 
 export const AppDataSource = new DataSource({
     type: "postgres",
-    host: process.env.HOST || "localhost",
-    port: Number(String(process.env.PORT)) || 5432,
-    username: process.env.USERNAME || "postgres",
-    password: process.env.PASSWORD || "root",
-    database: process.env.DATABASE || "rng",
+    host: process.env.HOST,
+    port: Number(String(process.env.PORT)) ,
+    username: process.env.USERNAME ,
+    password: process.env.PASSWORD ,
+    database: process.env.DATABASE ,
     synchronize: true,
     logging: true,
     entities: [Platform, GameGenre, TypeUser, State, Games, City, Profile, User],
