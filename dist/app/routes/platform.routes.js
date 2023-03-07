@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const platform_controllers_1 = require("../controllers/platform.controllers");
+const jwt_1 = require("../middlewares/jwt");
+const router = (0, express_1.Router)();
+router.get('/getall', platform_controllers_1.getPlatforms);
+router.get('/getone/:id', platform_controllers_1.getOnePlatform);
+router.use(jwt_1.authMiddleware);
+router.post('/create', platform_controllers_1.createPlatform);
+router.put('/update/:id', platform_controllers_1.updatePlatform);
+router.delete('/delete/:id', platform_controllers_1.deletePlatform);
+exports.default = router;

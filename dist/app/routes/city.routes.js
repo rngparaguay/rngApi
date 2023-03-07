@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const city_controllers_1 = require("../controllers/city.controllers");
+const jwt_1 = require("../middlewares/jwt");
+const router = (0, express_1.Router)();
+router.get('/getall', city_controllers_1.getCity);
+router.use(jwt_1.authMiddleware);
+router.get('/getone/:id', city_controllers_1.getOneCity);
+router.post('/create', city_controllers_1.createCity);
+router.put('/update/:id', city_controllers_1.updateCity);
+router.delete('/delete/:id', city_controllers_1.deleteCity);
+exports.default = router;
