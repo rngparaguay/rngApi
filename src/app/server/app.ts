@@ -9,6 +9,7 @@ import cityRoutes from "../routes/city.routes";
 import gameRoutes from "../routes/games.routes";
 import profileRoutes from "../routes/profile.routes";
 import userRoutes from "../routes/user.routes";
+import health from "../routes/health.routes";
 import 'dotenv/config';
 
 const app = express();
@@ -26,6 +27,7 @@ app.use("/city", cityRoutes)
 app.use("/game", gameRoutes)
 app.use("/profile", profileRoutes)
 app.use("/user", userRoutes)
+app.use(health)
 
 
 export default app;

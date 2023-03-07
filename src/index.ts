@@ -11,8 +11,8 @@ async function main() {
     try {
         await AppDataSource.initialize();
         console.log("Database Connected");
-        app.listen(process.env.SERVER);
-        console.log(`Server listening on port ${process.env.SERVER}`);
+        app.listen(process.env.PORT);
+        console.log(`Server listening on port ${process.env.PORT}`);
     } catch (error) {
         console.log(error);
     }
